@@ -1,0 +1,2 @@
+serviceClass: rr.client.GreetingService
+path: 04DCE608142DB2658281F2C0683A54BA.gwt.rpc

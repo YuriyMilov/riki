@@ -1,0 +1,55 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="Riki.css">
+<title>Рики</title>
+<script type="text/javascript" language="javascript" src="riki/riki.nocache.js"></script>
+<script> function setupEventSource() {
+    	new EventSource("/sse").onmessage = function(event) {
+    		document.getElementById("output").innerHTML = event.data;
+    		};    	
+    	}
+ </script>
+</head>
+<body onload="setupEventSource()">
+
+	<!-- OPTIONAL: include this if you want history support -->
+	<iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1'
+		style="position: absolute; width: 0; height: 0; border: 0"></iframe>
+
+	<!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+	<noscript>
+		<div
+			style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+			без JavaScript это не работает...</div>
+	</noscript>
+	<!-- 
+<script>
+		function setupEventSource() {
+			var output = document.getElementById("output");
+			if (typeof (EventSource) !== "undefined") {
+				var msg = document.getElementById("textID").value;
+				var source = new EventSource("/sse?msg=" + msg);
+				source.onmessage = function(event) {
+					output.innerHTML+ = "22 <br/><br/><br/> "+event.data + "<br/><br/><br/>";
+				};
+			} else {
+				output.innerHTML = "Sorry, Server-Sent Event is not supported in your browser";
+			}
+			return false;
+		}
+	</script>
+		
+	<div>
+		<input type="text" id="textID" name="message" value="Hello World">
+		<input type="button" id="sendID" value="Send"
+			onclick="setupEventSource()" />
+	</div>
+
+	<hr />
+ -->
+<div id="output"></div>
+
+
+</body>
+</html>
